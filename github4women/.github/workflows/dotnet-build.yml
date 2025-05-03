@@ -1,0 +1,21 @@
+name: Executar Workflow em Push e Agendamento
+
+on:
+  push:
+  schedule:
+    - cron: '0 * * * *'  # Executa a cada hora, no minuto 0
+
+jobs:
+  exemplo-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Action pré-existente: Clona o repositório
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      # Script personalizado simples
+      - name: Executar script personalizado
+        run: |
+          echo "Executando script customizado..."
+          date
